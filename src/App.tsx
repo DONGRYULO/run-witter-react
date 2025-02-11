@@ -1,13 +1,25 @@
-import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/layout'
 import Home from './routes/home'
 import Profile from './routes/profile'
-
+import Index from './routes/index'
 
 const router = createBrowserRouter([
   {
-    path:"/",
+    path:"/",    
+    children:[
+      {
+        path:"",
+        element: <Index/>
+      },
+      {
+        path:"home",
+        element: <Home/>
+      }
+    ]
+  },  
+  {
+    path:"/main",
     element: <Layout/>,
     children:[
       {
