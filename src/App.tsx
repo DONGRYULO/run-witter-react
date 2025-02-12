@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Layout from './components/layout'
+import MainLayout from './components/main-layout'
 import Home from './routes/home'
 import Profile from './routes/profile'
 import Index from './routes/index'
+import ProtectedRoute from "./components/protected-route";
 
 const router = createBrowserRouter([
   {
@@ -11,19 +12,19 @@ const router = createBrowserRouter([
       {
         path:"",
         element: <Index/>
-      },
-      {
-        path:"home",
-        element: <Home/>
-      }
+      }      
     ]
   },  
   {
     path:"/main",
-    element: <Layout/>,
+    element: (
+      <ProtectedRoute>
+        <MainLayout/>
+      </ProtectedRoute>
+    ),
     children:[
       {
-        path:"",
+        path:"home",
         element: <Home/>
       },
       {

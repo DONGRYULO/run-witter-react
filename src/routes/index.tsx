@@ -31,11 +31,16 @@ const HeaderR_Wrap = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 10px;
 `;
-const HeaderR_Title = styled.h1`        
+const HeaderR_Title = styled.span`
+    font-size: 80px;
+    font-weight: bold;
     color: white;
 `;
-const HeaderR_SubTitle = styled.h2`
+const HeaderR_SubTitle = styled.span`
+    font-size: 30px;
+    font-weight: bold;
     color: white;
 `;
 
@@ -81,8 +86,11 @@ const HeaderR_PrivacyPolicy = styled.span`
 const HeaderR_Login_Wrap = styled.div`    
     display: flex;
     flex-direction: column;    
+    gap: 20px;
 `
-const HeaderR_LoginTitle = styled.h1`    
+const HeaderR_LoginTitle = styled.span`    
+    font-size: 20px;        
+    font-weight: bold;
     color: white;
 `
 const HeaderR_LoginBtn = styled.div`    

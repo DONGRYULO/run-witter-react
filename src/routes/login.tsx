@@ -36,7 +36,7 @@ export default function Login({popupCheck, onClosePopup}:LoginProps){
         try{            
             setLoading(true);
             await signInWithEmailAndPassword(auth, email, password);
-            navigate('/home');
+            navigate('/main/home');
         }catch(e){
             if(e instanceof FirebaseError){                
                 setError(e.message);
