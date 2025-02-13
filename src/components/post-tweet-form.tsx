@@ -7,6 +7,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border: 2px solid yellow; 
 `;
 
 const TextArea = styled.textarea`

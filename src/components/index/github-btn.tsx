@@ -1,6 +1,6 @@
 import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import {styled} from "styled-components";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
 const HeaderR_SnsCreateAccountBtn = styled.div`
@@ -34,7 +34,7 @@ export default function GithubLoginButton(){
 
     return (
         <HeaderR_SnsCreateAccountBtn onClick={onClick}>
-            <HeaderR_SnsCreateAccountIcon src="/css/GoogleSnsLogo.png"></HeaderR_SnsCreateAccountIcon>
+            <HeaderR_SnsCreateAccountIcon src="/images/GoogleSnsLogo.png"></HeaderR_SnsCreateAccountIcon>
             <HeaderR_SnsCreateAccountTitle>Google 계정으로 가입하기</HeaderR_SnsCreateAccountTitle>                        
         </HeaderR_SnsCreateAccountBtn>
     );

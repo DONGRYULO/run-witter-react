@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword} from "firebase/auth";
 import { FirebaseError } from "firebase/app";
-import {auth} from "../firebase";
-import {Popup_Wrap, Error, Header, HeaderL_ExitBtn, HeaderR_LoginLogo, Body, BodyTitle, BodyForm, BodyFormInput, BodyFormSubmit} from "../components/auth-components";
+import {auth} from "../../firebase";
+import {Popup_Wrap, Error, Header, HeaderL_ExitBtn, HeaderR_LoginLogo, Body, BodyTitle, BodyForm, BodyFormInput, BodyFormSubmit} from "../../components/index/auth-components";
 
 
 
@@ -61,8 +61,8 @@ export default function Login({popupCheck, onClosePopup}:LoginProps){
     return (
         <Popup_Wrap>
             <Header>
-                <HeaderL_ExitBtn onClick={onClosePopup} src="/css/loginCloseBtn.png" />
-                <HeaderR_LoginLogo src="/css/loginLogo.jpg" />
+                <HeaderL_ExitBtn onClick={onClosePopup} src="/images/loginCloseBtn.png" />
+                <HeaderR_LoginLogo src="/images/loginLogo.jpg" />
             </Header>
             <Body>
                 <BodyTitle>로그인하기</BodyTitle>

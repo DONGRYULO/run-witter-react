@@ -1,125 +1,31 @@
-import styled from "styled-components";
 import { useState } from "react";
-import CreateAccount from "./create-account";
-import Login from "./login";
-import GithubLoginButton from "../components/github-btn";
+import CreateAccount from "./index_modal/create-account";
+import Login from "./index_modal/login"
+import GithubLoginButton from "../components/index/github-btn";
+import {
+          Wrapper
+        , Header
+        , HeaderL_Wrap
+        , HeaderL_Icon
+        , HeaderR_Wrap
+        , HeaderR_SubTitle
+        , HeaderR_Line_Wrap
+        , HeaderR_Line
+        , HeaderR_Line_Title
+        , HeaderR_CreateAccountBtn
+        , HeaderR_CreateAccountTitle
+        , HeaderR_PrivacyPolicy
+        , HeaderR_Login_Wrap
+        , HeaderR_LoginTitle
+        , HeaderR_LoginBtn
+        , HeaderR_LoginBtnTitle
+        , Bottom
+    } 
+    from "../components/index/index-styled";
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: black;
-`
-const Header = styled.div`
-    flex: 9;
-    display: flex;                
-`
-const HeaderL_Wrap = styled.div`
-    flex: 5;  
-    display: flex;
-    justify-content: center;          
-`;
-const HeaderL_Icon = styled.img`            
-    margin-top: 250px;
-    width: 500px;
-    height: 500px;    
-`;
+import '../components/index/index-css.css';
 
-const HeaderR_Wrap = styled.div`
-    flex: 5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 10px;
-`;
-const HeaderR_Title = styled.span`
-    font-size: 80px;
-    font-weight: bold;
-    color: white;
-`;
-const HeaderR_SubTitle = styled.span`
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-`;
 
-const HeaderR_Line_Wrap = styled.div`    
-    display: flex;
-    width: 350px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-`
-const HeaderR_Line = styled.div`    
-      border-bottom: 2px solid #ddd; /* 선의 두께, 스타일, 색상 */
-      opacity: 0.2; /* 요소 전체 투명도 50% */
-      width: 100px; /* 선의 길이 */
-`
-const HeaderR_Line_Title = styled.span`    
-      color: white;
-`
-
-const HeaderR_CreateAccountBtn = styled.div`
-    display: flex;        
-    justify-content: center;
-    width: 350px;
-    height: 50px;
-    background-color: rgb(29, 155, 240);
-    border-radius: 25px;
-`
-const HeaderR_CreateAccountTitle = styled.span`    
-    color: white;
-    align-self: center;
-`
-const HeaderR_PrivacyPolicy = styled.span`   
-    width: 350px;
-    font-size: 13px;
-    color:  rgb(113, 118, 123);    
-
-    a {            
-        text-decoration: none;
-        color: rgb(29, 155, 240);
-    }
-`
-
-const HeaderR_Login_Wrap = styled.div`    
-    display: flex;
-    flex-direction: column;    
-    gap: 20px;
-`
-const HeaderR_LoginTitle = styled.span`    
-    font-size: 20px;        
-    font-weight: bold;
-    color: white;
-`
-const HeaderR_LoginBtn = styled.div`    
-    display: flex;        
-    justify-content: center;
-    width: 350px;
-    height: 50px;    
-    border: 2px solid gray;
-    border-radius: 25px;
-`
-const HeaderR_LoginBtnTitle = styled.span`
-    color:  rgb(29, 155, 240);
-    align-self: center;
-`
-
-const Bottom = styled.div`
-    flex: 1;    
-    display: flex;    
-    flex-direction: row;   
-    justify-content: center;
-    
-    gap: 40px;
-    align-items: center; 
-
-    a {        
-        text-decoration: none;
-        color:  rgb(113, 118, 123);
-    }
-`;
 
 export default function Index(){
     const [createAccountPopup, setCreateAccountPopup] = useState(false);
@@ -143,10 +49,10 @@ export default function Index(){
         <Wrapper>
             <Header>
                 <HeaderL_Wrap>
-                    <HeaderL_Icon src="/css/indexIcon.jpg"></HeaderL_Icon>
+                    <HeaderL_Icon src="/images/indexIcon.jpg"></HeaderL_Icon>
                 </HeaderL_Wrap>
                 <HeaderR_Wrap>
-                    <HeaderR_Title>지금 일어나고 있는 일</HeaderR_Title>
+                    <span className="sp-highlight">지금 일어나고 있는 일</span>
                     <HeaderR_SubTitle>지금 가입하세요</HeaderR_SubTitle>
                     <GithubLoginButton/>
                     <HeaderR_Line_Wrap>

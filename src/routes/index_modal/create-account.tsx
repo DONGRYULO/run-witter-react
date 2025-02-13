@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
-import {auth} from "../firebase";
-import {Popup_Wrap, Error, Header, HeaderL_ExitBtn, HeaderR_LoginLogo, Body, BodyTitle, BodyForm, BodyFormInput, BodyFormSubmit} from "../components/auth-components";
+import {auth} from "../../firebase";
+import {Popup_Wrap, Error, Header, HeaderL_ExitBtn, HeaderR_LoginLogo, Body, BodyTitle, BodyForm, BodyFormInput, BodyFormSubmit} from "../../components/index/auth-components";
 
 // 타입스크립트를 사용할 때는 부모 컴포넌트가 자식 컴포넌트로 
 // 전달할 props의 타입을 자식 컴포넌트에서 명확히 지정해주는 것이 좋음
@@ -65,8 +65,8 @@ export default function CreateAccount({popupCheck, onClosePopup}:CreateAccountPr
     return (
         <Popup_Wrap>
             <Header>
-                <HeaderL_ExitBtn onClick={onClosePopup} src="/css/loginCloseBtn.png" />
-                <HeaderR_LoginLogo src="/css/loginLogo.jpg" />
+                <HeaderL_ExitBtn onClick={onClosePopup} src="/images/loginCloseBtn.png" />
+                <HeaderR_LoginLogo src="/images/loginLogo.jpg" />
             </Header>
             <Body>
                 <BodyTitle>계정을 생성하세요</BodyTitle>

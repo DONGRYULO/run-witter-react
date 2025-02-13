@@ -1,151 +1,35 @@
-import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import styled from "styled-components";
-import PostTweetForm from "./post-tweet-form";
-import Home from "../routes/home";
-
-const Wrapper = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: [r-1]50px [r-2]1000px [r-3]50px;
-    grid-template-areas: 
-        "header contentsBar rightBar"
-        "menu contents ."
-        "footer . .";
-    gap: 10px;
-
-    /* & > div:nth-child(1) {
-        grid-column: 1 / span 2;
-    } */
-
-    height: 100%;
-    width: 100%;
-    background-color: black;    
-    
-`;
-
-// Left-Div
-const Header = styled.div`
-    grid-area: header;
-    justify-self: center;
-    border: 2px solid red;
-`;
-const HeaderLogo = styled.img`
-    height: 50px;
-    width: 50px;
-`;
-
-const Menu = styled.div`    
-    grid-area: menu;
-    justify-self: center;
-    display: flex;
-    flex-direction: column;    
-    gap: 10px;
-    margin-left: 50px;
-    border: 2px solid red;        
-`;
-const MenuItem = styled.div`  
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-  gap: 10px;
-  cursor: pointer;
-  svg {
-    width: 40px;    
-    fill: white;
-  } 
-  span {
-    color: white;   
-    font-size: 20px; 
-  }
-`;
-const MenuPostBtn = styled.div`    
-    display: flex;        
-    justify-content: center;
-    width: 200px;
-    height: 50px;    
-    border: 2px solid gray;
-    border-radius: 25px;
-    background-color: white;
-`
-const MenuPostBtnTitle = styled.span`
-    align-self: center;
-    color:  black;    
-    font-weight: bold;
-`
-
-const Footer = styled.footer`
-    grid-area: footer;
-    //justify-self: end;
-    //margin-left: 50px;
-    border: 2px solid red;  
-`;
-const FooterLoginInfo = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    svg {        
-        width: 25px;    
-        fill: white;
-    }
-`
-const FooterLoginInfoImg = styled.img`
-    height: 45px;
-    width: 45px;
-`
-const FooterLoginInfoText = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    & > span:nth-child(1) {
-        color: white;
-    }
-    & > span:nth-child(2) {
-        color: gray;
-    }
-`
-
-// Center-Div
-const ContentsBar = styled.div`
-    grid-area: contentsBar;
-    display: flex;   
-    border: 2px solid red;    
-`;
-const ContentsBarTitle = styled.div`
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;    
-    border: 2px solid green; 
-    span{        
-        align-content: center;
-        color: "white";
-    }   
-`;
-
-const Contents = styled.div`
-    grid-area: contents;
-    border: 2px solid blue;    
-`;
-
-
-// Right-Div
-const RightBar = styled.div`
-    grid-area: rightBar;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    border: 2px solid green;
-`
-
-
+import {
+      Wrapper
+    , Header
+    , HeaderLogo
+    , Menu
+    , MenuItem
+    , MenuPostBtn
+    , MenuPostBtnTitle
+    , Footer
+    , FooterLoginInfo
+    , FooterLoginInfoImg
+    , FooterLoginInfoText
+    , ContentsBar
+    , ContentsBarTitle
+    , ContentsBarSubTitle
+    , Contents
+    , RightBar
+    , RightBarSearch
+    , RightBarSearchWrap
+    , RightBarSearchInput
+    , RightBarCard1
+} from "./main-layout-styled";
 
 export default function MainLayout(){
     
      return (
         <>
             <Wrapper>
-                {/* Left */}
-                <Header>
-                    <HeaderLogo src="/css/mainHeaderLogo.jpg"/>
+                {/* Left */}                
+                <Header> 
+                    <HeaderLogo>𝕏</HeaderLogo>
                 </Header>
                 <Menu>
                     <Link to="/main/home">
@@ -166,13 +50,22 @@ export default function MainLayout(){
                         </MenuItem>
                     </Link>
 
+                    <Link to="/main/marthon-info">
+                        <MenuItem>
+                            <svg data-slot="icon" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"></path>
+                            </svg>
+                            <span>marthon 정보</span>
+                        </MenuItem>
+                    </Link>
+
                     <MenuPostBtn>
                         <MenuPostBtnTitle>Post</MenuPostBtnTitle>
                     </MenuPostBtn>
                 </Menu>
                 <Footer>
                     <FooterLoginInfo>
-                        <FooterLoginInfoImg src="/css/mainHeaderLogo.jpg"/>
+                        <FooterLoginInfoImg src="/images/mainHeaderLogo.jpg"/>
                         <FooterLoginInfoText>
                             <span>이름</span>
                             <span>f1@naver.com</span>
@@ -181,23 +74,43 @@ export default function MainLayout(){
                             <path d="M2 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM6.5 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM12.5 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"></path>
                         </svg>
                     </FooterLoginInfo>
-                </Footer>
+                </Footer>                
 
                 {/* Center */}
                 <ContentsBar>
                     <ContentsBarTitle>
-                        <span>For you 1</span>                        
-                    </ContentsBarTitle>
-                    <ContentsBarTitle>
-                        <span>Following</span>
-                    </ContentsBarTitle>
+                        <span>홈</span>
+                    </ContentsBarTitle>                    
+                    <ContentsBarSubTitle>
+                        <span>추천</span>
+                        <span>팔로우 중</span>
+                    </ContentsBarSubTitle>
                 </ContentsBar>
                 <Contents>   
                     {/* 선택한 메뉴에 따라서 동적으로 변경됨(Home, Profile ..등) */}
                     <Outlet/>
                 </Contents>
                 
-                {/* Right */}                                
+                {/* Right */}     
+                <RightBar>
+                    <RightBarSearch>
+                        <RightBarSearchWrap>
+                            <svg data-slot="icon" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path clip-rule="evenodd" fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"></path>
+                            </svg>                                         
+                        </RightBarSearchWrap>
+                        <RightBarSearchInput placeholder="검색" />
+                    </RightBarSearch>
+                    <RightBarCard1>
+                        <span style={{ fontSize: '16px'}}>Premium 구독하기</span>
+                        <span style={{ fontSize: '15px'}}>
+                             구독하여 새로운 기능을 이용해 보세요. 자격을 충족하는 경우 광고 수익 배분금도 받을 수 있습니다.
+                        </span>
+                        <button style={{ fontSize: '15px', borderRadius:'60px', background:'blue', width:'100px' }}>게시하기</button>
+                    </RightBarCard1>
+                </RightBar>
+
+                
                 
             </Wrapper>
         </>

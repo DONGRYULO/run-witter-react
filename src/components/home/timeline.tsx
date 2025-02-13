@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import {
     collection,    
     limit,    
@@ -21,7 +21,12 @@ export interface ITweet {
 }
 
 const Wrapper = styled.div`
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    overflow-y: scroll;
     color: white;
+    border: 2px solid blue;
 `;
 
 export default function Timeline() {
@@ -46,7 +51,7 @@ export default function Timeline() {
                         userId, 
                         username, 
                         photo,
-                        id: doc.id,
+                        id: doc.id, 
                     };
                 });
                 setTweet(tweets);
